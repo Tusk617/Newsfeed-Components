@@ -113,12 +113,14 @@ const data = [
 
 */
 function articleCreator(title, date, p1, p2, p3){
+  // defining new elements, appending, and giving them classes
 const article = document.createElement('div');
 article.classList.add('article');
 
 const articleTitle = document.createElement('h2');
 article.appendChild(articleTitle);
 const date = document.createElement('p');
+data.classList.add('date');
 article.appendChild(date);
 
 const paraOne = document.createElement('p');
@@ -129,7 +131,18 @@ const paraThree = document.createElement('p');
 article.appendChild(paraThree);
 
 const expandButton = document.createElement('span');
+expandButton.classList.add('expandButton');
 article.appendChild(expandButton);
+
+
+
+// setting text content
+articleTitle.textContent = title;
+date.textContent = date;
+paraOne = p1;
+paraTwo = p2;
+paraThree = p3;
+
 
 return article;
 }
