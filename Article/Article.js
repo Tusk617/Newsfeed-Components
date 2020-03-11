@@ -119,9 +119,9 @@ article.classList.add('article', 'article-open');
 
 const articleTitle = document.createElement('h2');
 article.appendChild(articleTitle);
-const date = document.createElement('p');
-data.classList.add('date');
-article.appendChild(date);
+const artDate = document.createElement('p');
+artDate.classList.add('date');
+article.appendChild(artDate);
 
 const paraOne = document.createElement('p');
 article.appendChild(paraOne);
@@ -141,11 +141,21 @@ expandButton.addEventListener('click', (event) => {
 
 // setting text content
 articleTitle.textContent = title;
-date.textContent = date;
-paraOne = p1;
-paraTwo = p2;
-paraThree = p3;
+artDate.textContent = date;
+paraOne.textContent = p1;
+paraTwo.textContent = p2;
+paraThree.textContent = p3;
+expandButton.textContent = 'expand';
 
 
 return article;
 }
+
+// Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+
+const articlesContainer = document.querySelector('.articles');
+// console.log(articlesContainer);
+
+data.map( data => {
+  articlesContainer.append(articleCreator(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+})
