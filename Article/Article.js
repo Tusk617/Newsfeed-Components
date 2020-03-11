@@ -85,6 +85,20 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Happy little accidents',
+    date: 'April 14th, 2000',
+    firstParagraph: `Happy little ipsum. Be sure to use odorless paint-thinner. If it's not odorless, you'll find yourself working alone very, 
+    very quick. Just put a few do-ers in there... Oh, you'd be in Agony City by now. And that makes it look like birch trees, isn't that sneaky? 
+    Heh. Ha. It's gorgeous. `,
+
+    secondParagraph: `If you did this with blue, and you went over it with yellow, you would end up with a nice green sky. And that's not the thing
+     we are looking for. Oh, you'd be in Agony City by now. Haha, and just beat the devil out of it. The only thing worse than yellow snow is green snow. `,
+
+    thirdParagraph: `You can put as many or as few as you want in your world. If you did this with blue, and you went over it with yellow, you would end 
+    up with a nice green sky. And that's not the thing we are looking for. People might look at you a bit funny, but it's okay. Artists are allowed to be a 
+    bit different.`
   }
 ];
 
@@ -115,7 +129,7 @@ const data = [
 function articleCreator(title, date, p1, p2, p3){
   // defining new elements, appending, and giving them classes
 const article = document.createElement('div');
-article.classList.add('article', 'article-open');
+article.classList.add('article');
 
 const articleTitle = document.createElement('h2');
 article.appendChild(articleTitle);
@@ -136,7 +150,7 @@ article.appendChild(expandButton);
 
 // Adding an event listener to expandButton
 expandButton.addEventListener('click', (event) => {
-  article.classList.toggle('toggle-on');
+  article.classList.toggle('article-open');
 })
 
 // setting text content
