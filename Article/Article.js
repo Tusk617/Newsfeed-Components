@@ -115,7 +115,7 @@ const data = [
 function articleCreator(title, date, p1, p2, p3){
   // defining new elements, appending, and giving them classes
 const article = document.createElement('div');
-article.classList.add('article');
+article.classList.add('article', 'article-open');
 
 const articleTitle = document.createElement('h2');
 article.appendChild(articleTitle);
@@ -134,7 +134,10 @@ const expandButton = document.createElement('span');
 expandButton.classList.add('expandButton');
 article.appendChild(expandButton);
 
-
+// Adding an event listener to expandButton
+expandButton.addEventListener('click', (event) => {
+  article.classList.toggle('toggle-on');
+})
 
 // setting text content
 articleTitle.textContent = title;
