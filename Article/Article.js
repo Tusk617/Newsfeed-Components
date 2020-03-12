@@ -85,6 +85,20 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Happy little accidents',
+    date: 'April 14th, 2000',
+    firstParagraph: `Happy little ipsum. Be sure to use odorless paint-thinner. If it's not odorless, you'll find yourself working alone very, 
+    very quick. Just put a few do-ers in there... Oh, you'd be in Agony City by now. And that makes it look like birch trees, isn't that sneaky? 
+    Heh. Ha. It's gorgeous. `,
+
+    secondParagraph: `If you did this with blue, and you went over it with yellow, you would end up with a nice green sky. And that's not the thing
+     we are looking for. Oh, you'd be in Agony City by now. Haha, and just beat the devil out of it. The only thing worse than yellow snow is green snow. `,
+
+    thirdParagraph: `You can put as many or as few as you want in your world. If you did this with blue, and you went over it with yellow, you would end 
+    up with a nice green sky. And that's not the thing we are looking for. People might look at you a bit funny, but it's okay. Artists are allowed to be a 
+    bit different.`
   }
 ];
 
@@ -112,3 +126,50 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+function articleCreator(title, date, p1, p2, p3){
+  // defining new elements, appending, and giving them classes
+const article = document.createElement('div');
+article.classList.add('article');
+
+const articleTitle = document.createElement('h2');
+article.appendChild(articleTitle);
+const artDate = document.createElement('p');
+artDate.classList.add('date');
+article.appendChild(artDate);
+
+const paraOne = document.createElement('p');
+article.appendChild(paraOne);
+const paraTwo = document.createElement('p');
+article.appendChild(paraTwo);
+const paraThree = document.createElement('p');
+article.appendChild(paraThree);
+
+const expandButton = document.createElement('span');
+expandButton.classList.add('expandButton');
+article.appendChild(expandButton);
+
+// Adding an event listener to expandButton
+expandButton.addEventListener('click', (event) => {
+  article.classList.toggle('article-open');
+})
+
+// setting text content
+articleTitle.textContent = title;
+artDate.textContent = date;
+paraOne.textContent = p1;
+paraTwo.textContent = p2;
+paraThree.textContent = p3;
+expandButton.textContent = 'expand';
+
+
+return article;
+}
+
+// Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+
+const articlesContainer = document.querySelector('.articles');
+// console.log(articlesContainer);
+
+data.map( data => {
+  articlesContainer.append(articleCreator(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+})
